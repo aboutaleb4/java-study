@@ -10,7 +10,6 @@ public class study {
         listNotes();
 
         hashMapNotes();
-
     }
 
     private static void hashMapNotes() {

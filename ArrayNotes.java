@@ -1,8 +1,23 @@
+import java.util.Arrays;
+
 public class ArrayNotes {
     static void arrayNotes() {
-        /* Arrays */
         //Instantiating an array with items in it.
         int[] numbers = {1, 2, 3, 4, 5};
+
+        //Instantiating an empty array
+        int[] intArray = new int[5];
+        System.out.println(Arrays.toString(intArray));
+
+        //Overriding an empty array of size 5 with a  populated array of size 2.
+        intArray = new int[]{2, 1};
+        Arrays.sort(intArray);
+        System.out.println(Arrays.toString(intArray));
+
+
+        char[] charArray = new char[]{'c', 'b', 'a'};
+        Arrays.sort(charArray);
+        System.out.println(Arrays.toString(charArray));
 
         //Fetching using index
         int numberFetchedUsingIndex = numbers[2];
@@ -17,5 +32,7 @@ public class ArrayNotes {
         } catch (Exception e) {
             System.out.println(e);
         }
+
+
     }
 }

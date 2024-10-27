@@ -4,7 +4,7 @@ public class study {
 //        ArrayNotes.arrayNotes();
 //        ListNotes.listNotes();
 //        HashMapNotes.hashMapNotes();
-        StringAndCharNotes.notes();
+        CharsStringsAndStringBuilders.notes();
     }
 
 }

@@ -1,4 +1,4 @@
-public class StringAndCharNotes {
+public class CharsStringsAndStringBuilders {
     static void notes() {
         String s = "ahmedmostafa";
         System.out.println(s);

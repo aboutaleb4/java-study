@@ -1,5 +1,6 @@
 public class CharsStringsAndStringBuilders {
     static void notes() {
+        System.out.println("Chars Strings And StringBuilders Notes:");
         String s = "ahmedmostafa";
         System.out.println(s);
 
@@ -54,5 +55,6 @@ public class CharsStringsAndStringBuilders {
         stringBuilderForTesting.setCharAt(20, 'a');
         System.out.println(stringBuilderForTesting);
         System.out.println(stringBuilderForTesting.length());
+        System.out.println();
     }
 }

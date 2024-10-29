@@ -1,3 +1,4 @@
+import java.util.Date;
 import java.util.HashMap;
 
 public class HashMapNotes {
@@ -21,5 +22,12 @@ public class HashMapNotes {
         //Checking if a value exists
         System.out.println("Value Exists: " + hm.containsValue(2));
         System.out.println("Value Doesn't Exist: " + hm.containsValue(1));
+
+        HashMap<String, HashMap<String, Double>> hashMap = new HashMap<>();
+        hashMap.computeIfAbsent("key", k -> new HashMap<>()).put("inner key", 1.0);
+        hashMap.computeIfAbsent("key 2", k -> new HashMap<>()).put("inner key 2", 2.0);
+        hashMap.computeIfAbsent("key", k -> new HashMap<>()).put("inner key 3", 3.0);
+
+        System.out.println(hashMap);
     }
 }

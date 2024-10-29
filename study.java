@@ -5,7 +5,8 @@ public class study {
 //        ListNotes.listNotes();
 //        HashMapNotes.hashMapNotes();
 //        CharsStringsAndStringBuilders.notes();
-        PrimitivesNotes.notes();
+//        PrimitivesNotes.notes();
+        BitManipulation.notes();
     }
 
 }

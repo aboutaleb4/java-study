@@ -27,7 +27,15 @@ abstract class animal {
     }
 }
 
-class Cat extends animal {
+class mammal extends animal {
+    public void speak() {
+        System.out.println("mammal");
+    }
+}
+
+class Fish extends animal {}
+
+class Cat extends mammal {
     private final String name;
 
     public Cat(String name) {
@@ -39,13 +47,13 @@ class Cat extends animal {
     }
 }
 
-class Dog extends animal {
+class Dog extends mammal {
     public void speak() {
         System.out.println("I'm a dog");
     }
 }
 
-class Fish extends animal {}
+class ClownFish extends Fish {}
 
 class AnimalFactory {
 }

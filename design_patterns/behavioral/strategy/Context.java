@@ -1,4 +1,4 @@
-package Behavioral.Strategy;
+package design_patterns.behavioral.strategy;
 
 public class Context {
     Strategy strategy;

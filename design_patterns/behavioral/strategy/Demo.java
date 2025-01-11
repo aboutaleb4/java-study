@@ -1,6 +1,6 @@
-package Behavioral.Strategy;
+package design_patterns.behavioral.strategy;
 
-public class Main {
+public class Demo {
     public static void main(String[] args) {
         StrategyA strategyA = new StrategyA();
         StrategyB strategyB = new StrategyB();

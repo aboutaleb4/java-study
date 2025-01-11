@@ -5,7 +5,6 @@ public class Demo {
         AhmedWahedBas ahmedWahedBas = AhmedWahedBas.getAhmed();
         AhmedWahedBas ahmedTany = AhmedWahedBas.getAhmed();
 
-
         ahmedWahedBas.name = "Ahmed Aboutaleb";
 
         System.out.println(ahmedTany.name);

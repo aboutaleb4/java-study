@@ -8,19 +8,19 @@ public class Player {
         this.name = name;
     }
 
-    public void updateScore(Player player2) {
+    public void updateScore(Player otherPlayer) {
         if (this.Score.equals(Scores.love)) {
             this.Score = Scores.fifteen;
         } else if (this.Score.equals(Scores.fifteen)) {
             this.Score = Scores.thirty;
-        } else if (this.Score.equals(Scores.thirty) && !player2.Score.equals(Scores.forty)) {
+        } else if (this.Score.equals(Scores.thirty) && !otherPlayer.Score.equals(Scores.forty)) {
             this.Score = Scores.forty;
-        } else if (this.Score.equals(Scores.thirty) && player2.Score.equals(Scores.forty)) {
+        } else if (this.Score.equals(Scores.thirty) && otherPlayer.Score.equals(Scores.forty)) {
             this.Score = Scores.deuce;
-            player2.Score = Scores.deuce;
-        } else if (this.Score.equals(Scores.deuce) && player2.Score.equals(Scores.advantage)) {
-            player2.Score = Scores.deuce;
-        } else if (this.Score.equals(Scores.deuce) && !player2.Score.equals(Scores.advantage)) {
+            otherPlayer.Score = Scores.deuce;
+        } else if (this.Score.equals(Scores.deuce) && otherPlayer.Score.equals(Scores.advantage)) {
+            otherPlayer.Score = Scores.deuce;
+        } else if (this.Score.equals(Scores.deuce) && !otherPlayer.Score.equals(Scores.advantage)) {
             this.Score = Scores.advantage;
         } else if (this.Score.equals(Scores.forty) || this.Score.equals(Scores.advantage)) {
             this.Score = Scores.game;

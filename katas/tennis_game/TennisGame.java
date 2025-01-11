@@ -15,12 +15,12 @@ class TennisGame {
         checkScore();
     }
     
-    public void wonPoint(String player) {
+    public void wonPoint(Player player) {
         if(!gameState.equals(GameState.started)) {
             System.out.println("The game is not ongoing!");
             return;
         }
-        if (player.equals(player1.name)) {
+        if (player == player1) {
             player1.updateScore(player2);
         }
         else {
@@ -39,11 +39,11 @@ class TennisGame {
         System.out.println(player1.Score + " - " + player2.Score);
     }
 
-    public void registerPlayer1(String name) {
-        player1 = new Player(name);
-    }
-    
-    public void registerPlayer2(String name) {
-        player2 = new Player(name);
+    public void registerPlayer(Player player) {
+        if(player1 == null) player1 = player;
+        else if(player2 == null) player2 = player;
+        else {
+            System.out.println("Game is full");
+        } 
     }
 }

@@ -6,9 +6,13 @@ public class Demo {
         ShowDirector showDirector = new ShowDirector();
         showDirector.makeShortShow(animeBuilder);
         animeBuilder.setName("Attack On Titan");
-        animeBuilder.setThemeSong("Eshtatutuisha");
+        animeBuilder.setThemeSong("song 1");
         Anime anime = animeBuilder.getShow();
+        animeBuilder.setThemeSong("song 2");
+        Anime anime2 = animeBuilder.getShow();
         System.out.println(anime.summary());
+        System.out.println();
+        System.out.println(anime2.summary());
     }
 }
 

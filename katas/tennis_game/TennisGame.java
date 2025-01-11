@@ -12,7 +12,7 @@ class TennisGame {
         }
         System.out.println("Game Started!");
         gameState = GameState.started;
-        checkScore();
+        displayScore();
     }
     
     public void wonPoint(Player player) {
@@ -26,10 +26,10 @@ class TennisGame {
         else {
             player2.updateScore(player1);
         }
-        checkScore();
+        displayScore();
     }
     
-    public void checkScore() {
+    public void displayScore() {
         if(player1.Score.equals(Scores.game)) {System.out.println(player1.name + " won!"); return;}
         if(player2.Score.equals(Scores.game)) {System.out.println(player2.name + " won!"); return;}
         if(player1.Score.equals(Scores.deuce) && player2.Score.equals(Scores.deuce)) {System.out.println("Deuce!"); return;}

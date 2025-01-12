@@ -13,18 +13,21 @@ class AnimeBuilder implements ShowBuilder {
     }
 
     @Override
-    public void setNumberOfCharacters(int num) {
+    public AnimeBuilder setNumberOfCharacters(int num) {
         anime.numberOfCharacters = num;
+        return this;
     }
 
     @Override
-    public void setName(String name) {
+    public AnimeBuilder setName(String name) {
         anime.name = name;
+        return this;
     }
 
     @Override
-    public void setThemeSong(String song) {
+    public AnimeBuilder setThemeSong(String song) {
         anime.song = song;
+        return this;
     }
 
     public Anime getShow() {

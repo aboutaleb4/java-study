@@ -5,8 +5,8 @@ public class Demo {
         AnimeBuilder animeBuilder = new AnimeBuilder();
         ShowDirector showDirector = new ShowDirector();
         showDirector.makeShortShow(animeBuilder);
-        animeBuilder.setName("Attack On Titan");
-        animeBuilder.setThemeSong("song 1");
+        animeBuilder.setName("Attack On Titan")
+                    .setThemeSong("song 1");
         Anime anime = animeBuilder.getShow();
         animeBuilder.setThemeSong("song 2");
         Anime anime2 = animeBuilder.getShow();

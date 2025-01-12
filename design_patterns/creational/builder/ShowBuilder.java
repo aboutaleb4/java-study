@@ -3,9 +3,9 @@ package design_patterns.creational.builder;
 interface ShowBuilder {
     void reset();
 
-    void setNumberOfCharacters(int num);
+    ShowBuilder setNumberOfCharacters(int num);
 
-    void setName(String name);
+    ShowBuilder setName(String name);
 
-    void setThemeSong(String song);
+    ShowBuilder setThemeSong(String song);
 }

@@ -13,18 +13,21 @@ class TvShowBuilder implements ShowBuilder {
     }
 
     @Override
-    public void setNumberOfCharacters(int num) {
+    public TvShowBuilder setNumberOfCharacters(int num) {
         tvShow.numberOfCharacters = num;
+        return this;
     }
 
     @Override
-    public void setName(String name) {
+    public TvShowBuilder setName(String name) {
         tvShow.name = name;
+        return this;
     }
 
     @Override
-    public void setThemeSong(String song) {
+    public TvShowBuilder setThemeSong(String song) {
         tvShow.song = song;
+        return this;
     }
 
     public TvShow getShow() {

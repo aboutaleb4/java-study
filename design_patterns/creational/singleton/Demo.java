@@ -2,12 +2,12 @@ package design_patterns.creational.singleton;
 
 public class Demo {
     public static void main(String[] args) {
-        AhmedWahedBas ahmedWahedBas = AhmedWahedBas.getAhmed();
-        AhmedWahedBas ahmedTany = AhmedWahedBas.getAhmed();
+        OnlyOneAboutaleb onlyOneAboutaleb = OnlyOneAboutaleb.getAhmed();
+        OnlyOneAboutaleb aboutalebDuplganger = OnlyOneAboutaleb.getAhmed();
 
-        ahmedWahedBas.name = "Ahmed Aboutaleb";
+        onlyOneAboutaleb.name = "Ahmed Aboutaleb";
 
-        System.out.println(ahmedTany.name);
+        System.out.println(aboutalebDuplganger.name);
     }
 }
 

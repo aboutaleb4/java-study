@@ -49,8 +49,8 @@ class Directory extends Resource {
     @Override
     public void ls() {
         System.out.println("------------------------------");
-        for(Resource resource: resources.values()) {
-            System.out.println(resource.getName());
+        for(String resource: resources.keySet()) {
+            System.out.println(resource);
         }
     }
 
@@ -81,7 +81,7 @@ class FileSystem {
 
     public File touch(String path) {
         List<String> resourceDirectoryPath = getResourceDirectory(path);
-        String resourceName = getResourceName(path);
+        String resourceName = getFileName(path);
 
         Directory currentDir = root;
         for(String resourceDirectory: resourceDirectoryPath) {
@@ -116,7 +116,7 @@ class FileSystem {
         return components;
     }
 
-    private String getResourceName(String path) {
+    private String getFileName(String path) {
         List<String>  components = getResourcePath(path);
         return components.isEmpty() ? "" : components.getLast();
     }

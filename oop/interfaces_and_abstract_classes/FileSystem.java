@@ -13,7 +13,7 @@ abstract class Resource implements resourceInterface {
         this.name = name;
     }
 
-    public abstract List<String> ls();
+    public abstract void ls();
 
     public String getName() {
         return name;
@@ -21,7 +21,6 @@ abstract class Resource implements resourceInterface {
 }
 
 class File extends Resource {
-
     String content = "";
 
     public File(String name) {
@@ -29,18 +28,13 @@ class File extends Resource {
     }
 
     @Override
-    public List<String> ls() {
-        List<String> ans =  new ArrayList<>();
-        ans.add(getName());
-        return ans;
+    public void ls() {
+        System.out.println("------------------------------");
+        System.out.println(getName());
     }
 
     public void addContent(String content) {
         this.content += content;
-    }
-
-    public String getContent() {
-        return content;
     }
 }
 
@@ -53,10 +47,11 @@ class Directory extends Resource {
     }
 
     @Override
-    public List<String> ls() {
-        List<String> ans =  new ArrayList<>();
-        for(Resource resource: resources.values()) ans.add(resource.getName());
-        return ans;
+    public void ls() {
+        System.out.println("------------------------------");
+        for(Resource resource: resources.values()) {
+            System.out.println(resource.getName());
+        }
     }
 
     public File touch(String name) {
@@ -78,16 +73,10 @@ class FileSystem {
     Directory root = new Directory("~");
 
     public void mkdir(String path) {
-        List<String> resourceDirectoryPath = getResourceDirectory(path);
-        String resourceName = getResourceName(path);
-
         Directory currentDir = root;
-
-        for(String resourceDirectory: resourceDirectoryPath) {
+        for(String resourceDirectory: getResourcePath(path)) {
             currentDir = currentDir.mkdir(resourceDirectory);
         }
-
-        currentDir.mkdir(resourceName);
     }
 
     public File touch(String path) {
@@ -95,7 +84,6 @@ class FileSystem {
         String resourceName = getResourceName(path);
 
         Directory currentDir = root;
-
         for(String resourceDirectory: resourceDirectoryPath) {
             currentDir = currentDir.mkdir(resourceDirectory);
         }
@@ -109,31 +97,31 @@ class FileSystem {
     }
 
     public void ls(String path) {
-        System.out.println("------------------------------");
-        List<String> resourceDirectoryPath = getResourceDirectory(path);
-        String resourceName = getResourceName(path);
-
-        Directory currentDir = root;
-
-        for(String resourceDirectory: resourceDirectoryPath) {
-            currentDir = currentDir.mkdir(resourceDirectory);
+        Resource currentDir = root;
+        for(String resourceDirectory: getResourcePath(path)) {
+            currentDir = ((Directory) currentDir).getResource(resourceDirectory);
         }
-
-        Resource resource = resourceName.isEmpty() ? root : currentDir.getResource(resourceName);
-
-        for(String s: resource.ls()) {
-            System.out.println(s);
-        }
-
+        currentDir.ls();
     }
 
     public void getContent(String path) {
         File file = touch(path);
         System.out.println("------------------------------");
-        System.out.println(file.getContent());
+        System.out.println(file.content);
     }
 
     private List<String> getResourceDirectory(String path) {
+        List<String> components = getResourcePath(path);
+        if(!components.isEmpty()) components.removeLast();
+        return components;
+    }
+
+    private String getResourceName(String path) {
+        List<String>  components = getResourcePath(path);
+        return components.isEmpty() ? "" : components.getLast();
+    }
+
+    private List<String> getResourcePath(String path) {
         String[] components = path.split("/");
         ArrayList<String> result = new ArrayList<>();
         for (String component : components) {
@@ -141,18 +129,6 @@ class FileSystem {
                 result.add(component);
             }
         }
-        if(!result.isEmpty()) result.removeLast();
         return result;
-    }
-
-    private String getResourceName(String path) {
-        String[] components = path.split("/");
-
-        for(int i = components.length - 1; i >= 0; i--){
-            if (!components[i].isEmpty()) {
-                return components[i];
-            }
-        }
-        return "";
     }
 }

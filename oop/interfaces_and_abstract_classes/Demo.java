@@ -13,6 +13,7 @@ public class Demo {
         fileSystem.ls("a/b");
         fileSystem.touch("a/b/d");
         fileSystem.ls("a/b");
+        fileSystem.ls("a/b/d");
         fileSystem.addContent("a/b/d", "Ahmed ");
         fileSystem.getContent("a/b/d");
         fileSystem.addContent("a/b/d", "Aboutaleb");

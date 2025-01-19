@@ -1,14 +1,28 @@
 package oop.interfaces_and_abstract_classes;
 
-import java.util.List;
-
 import java.util.*;
 
 interface resourceInterface {
     String getName();
 }
 
+abstract class Resource implements resourceInterface {
+    public String name;
+
+    public Resource(String name) {
+        this.name = name;
+    }
+
+    public abstract List<String> ls();
+
+    public String getName() {
+        return "Name: " + name;
+    }
+}
+
 class File extends Resource {
+
+    String content;
 
     public File(String name) {
         super(name);
@@ -19,6 +33,14 @@ class File extends Resource {
         List<String> ans =  new ArrayList<>();
         ans.add(getName());
         return ans;
+    }
+
+    public void addContent(String content) {
+        this.content += content;
+    }
+
+    public String getContent() {
+        return content;
     }
 }
 
@@ -44,23 +66,4 @@ class Directory extends Resource {
     public void addDirectory(String name) {
         resources.add(new Directory(name));
     }
-}
-
-
-
-
-abstract class Resource implements resourceInterface {
-    public String name;
-
-    public Resource(String name) {
-        this.name = name;
-    }
-
-    public abstract List<String> ls();
-
-    public String getName() {
-        return "Name: " + name;
-    }
-
-
 }

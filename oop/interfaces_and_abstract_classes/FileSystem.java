@@ -59,11 +59,35 @@ class Directory extends Resource {
         return ans;
     }
 
-    public void addFile(String name) {
+    public void touch(String name) {
         resources.add(new File(name));
     }
 
-    public void addDirectory(String name) {
+    public void mkdir(String name) {
         resources.add(new Directory(name));
+    }
+}
+
+class FileSystem {
+    Directory root = new Directory("~");
+
+    public void mkdir(String path) {
+
+    }
+
+    public void touch(String path) {
+
+    }
+
+    public void addContent(String path, String content) {
+
+    }
+
+    public String ls(String path) {
+        return "";
+    }
+
+    public String getContent(String path) {
+        return "";
     }
 }

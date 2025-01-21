@@ -34,3 +34,9 @@ public class Solution {
         return res;
     }
 }
+
+/*
+    Follow Ups:
+    1. What if the data was coming in as a stream? 
+    2. What if we had more than 2 lists?
+ */
